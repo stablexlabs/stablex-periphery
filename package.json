@@ -15,8 +15,9 @@
     "contracts"
   ],
   "dependencies": {
-    "@uniswap/lib": "1.1.1",
-    "@uniswap/v2-core": "1.0.0"
+    "@truffle/hdwallet-provider": "^1.1.1",
+    "@uniswap/lib": "git+https://github.com/stablexo2/uniswap-lib.git",
+    "@uniswap/v2-core": "git+https://github.com/stablexo2/uniswap-v2-core.git"
   },
   "devDependencies": {
     "@types/chai": "^4.2.6",
