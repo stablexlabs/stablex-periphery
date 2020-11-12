@@ -21,7 +21,7 @@ library StableXLibrary {
                 hex'ff',
                 factory,
                 keccak256(abi.encodePacked(token0, token1)),
-                hex'fdce65937a8bf3f247e3275dc13c280596d00737f430dcb85bb6863db918d950' // init code hash
+                hex'93789988fa56ca50e0e27331139790070082883dea0921056b8dd107cd1cbcf7' // init code hash
             ))));
     }
 
@@ -43,7 +43,7 @@ library StableXLibrary {
     function getAmountOut(uint amountIn, uint reserveIn, uint reserveOut) internal pure returns (uint amountOut) {
         require(amountIn > 0, 'StableXLibrary: INSUFFICIENT_INPUT_AMOUNT');
         require(reserveIn > 0 && reserveOut > 0, 'StableXLibrary: INSUFFICIENT_LIQUIDITY');
-        uint amountInWithFee = amountIn.mul(9996);
+        uint amountInWithFee = amountIn.mul(9994);
         uint numerator = amountInWithFee.mul(reserveOut);
         uint denominator = reserveIn.mul(10000).add(amountInWithFee);
         amountOut = numerator / denominator;
@@ -54,7 +54,7 @@ library StableXLibrary {
         require(amountOut > 0, 'StableXLibrary: INSUFFICIENT_OUTPUT_AMOUNT');
         require(reserveIn > 0 && reserveOut > 0, 'StableXLibrary: INSUFFICIENT_LIQUIDITY');
         uint numerator = reserveIn.mul(amountOut).mul(10000);
-        uint denominator = reserveOut.sub(amountOut).mul(9996);
+        uint denominator = reserveOut.sub(amountOut).mul(9994);
         amountIn = (numerator / denominator).add(1);
     }
 

@@ -1,2 +1,5 @@
-# build/
+build/
 node_modules/
+migrations
+truffle-config.js
+.DS_Store
