@@ -1,7 +1,9 @@
 pragma solidity =0.6.6;
+pragma experimental ABIEncoderV2;
 
 import '@uniswap/v2-core/contracts/interfaces/IStableXFactory.sol';
 import '@uniswap/lib/contracts/libraries/TransferHelper.sol';
+import "@openzeppelin/contracts/proxy/Initializable.sol";
 
 import './interfaces/IStableXRouter02.sol';
 import './libraries/StableXLibrary.sol';
@@ -9,18 +11,24 @@ import './libraries/SafeMath.sol';
 import './interfaces/IERC20.sol';
 import './interfaces/IWETH.sol';
 
-contract StableXRouter is IStableXRouter02 {
+contract StableXRouter is IStableXRouter02, Initializable {
     using SafeMath for uint;
 
-    address public immutable override factory;
-    address public immutable override WETH;
+    address public  override factory;
+    address public  override WETH;
 
     modifier ensure(uint deadline) {
         require(deadline >= block.timestamp, 'StableXRouter: EXPIRED');
         _;
     }
 
-    constructor(address _factory, address _WETH) public {
+    constructor() public {
+    }
+
+    function initialize(
+        address _factory, 
+        address _WETH
+    ) public initializer {
         factory = _factory;
         WETH = _WETH;
     }
