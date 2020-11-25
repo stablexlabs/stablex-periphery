@@ -34,7 +34,8 @@
     "solc": "0.6.6",
     "truffle-plugin-verify": "^0.5.0",
     "ts-node": "^8.5.4",
-    "typescript": "^3.7.3"
+    "typescript": "^3.7.3",
+    "dotenv": "^8.2.0"
   },
   "scripts": {
     "lint": "yarn prettier ./test/*.ts --check",
