@@ -35,9 +35,9 @@ The following assumes the use of `node@>=10`.
 
 3. Run deploy script:
 
-    3.1 Testnet
+    3.1 Testnet 
     
-    The deploy script will deploy `StableXRouter.sol` and `StableXRouterProxy.sol`
+    Please fill `stableXFactory` address on testnet into `migrations/2_deploy_contracts.js` first.
     
         ```shell script
         truffle migrate -f 2 --network testnet
@@ -45,7 +45,7 @@ The following assumes the use of `node@>=10`.
     
     3.2 Mainnet
     
-    The deploy script will deploy contract `StableXRouter` and call [StableXRouterProxy](https://bscscan.com/address/0xc7fA7951187F91153851b0F9Ab2d032Abd0f2f0C#code) to upgrade its implementation to the new deployed contract.
+    Please fill `stableXFactory` address on mainnet into `migrations/2_deploy_contracts.js` first.
     
         ```shell script
         truffle migrate -f 2 --network mainnet
