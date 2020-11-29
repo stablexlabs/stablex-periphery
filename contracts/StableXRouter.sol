@@ -3,7 +3,6 @@ pragma experimental ABIEncoderV2;
 
 import '@uniswap/v2-core/contracts/interfaces/IStableXFactory.sol';
 import '@uniswap/lib/contracts/libraries/TransferHelper.sol';
-import "@openzeppelin/contracts/proxy/Initializable.sol";
 
 import './interfaces/IStableXRouter02.sol';
 import './libraries/StableXLibrary.sol';
@@ -11,7 +10,7 @@ import './libraries/SafeMath.sol';
 import './interfaces/IERC20.sol';
 import './interfaces/IWETH.sol';
 
-contract StableXRouter is IStableXRouter02, Initializable {
+contract StableXRouter is IStableXRouter02 {
     using SafeMath for uint;
 
     address public  override factory;
@@ -22,13 +21,10 @@ contract StableXRouter is IStableXRouter02, Initializable {
         _;
     }
 
-    constructor() public {
-    }
-
-    function initialize(
+    constructor (
         address _factory, 
         address _WETH
-    ) public initializer {
+    ) public {
         factory = _factory;
         WETH = _WETH;
     }
