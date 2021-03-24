@@ -21,7 +21,7 @@ library StableXLibrary {
                 hex'ff',
                 factory,
                 keccak256(abi.encodePacked(token0, token1)),
-                hex'a8c17cde5b5b0559d7dd9df85ccf3bb3941535d4a67923802ee89fce19be7bec' // init code hash
+                hex'7c7f7638bb62310b205d05255ebffc7d7b4e5a33d58a9d1755e31ff521aa79bc' // init code hash
             ))));
     }
 
